@@ -1,2 +1,5 @@
-# konnyaku_Translator
-konnyaku_Translator：一款使用python编写基于OCR的简易翻译器
+# Konnyaku_Translator
+Konnyaku_Translator：一款使用python编写基于OCR的简易翻译器  
+Konnyaku 来源于哆啦A梦中常用的翻译道具翻訳コンニャク（翻译魔芋），其コンニャク（Konnyaku）是由翻訳（honyaku）谐音所创造出来的道具名称。这里因translator功能方向与翻訳コンニャク大体相同（虽然没有翻訳コンニャク那么厉害），将其借用并命名为Konnyaku_Translator。
+## 制作动机
+我作为一个多年的文字冒险类游戏玩家。在玩一些冷门老作品时，苦于找不到汉化/不会解包，又日语苦手，便打算使用机翻来进行游戏。网传的一些VNR翻译使用起来较为复杂，依赖安装复杂如需安装j北京等，资源查找复杂如分享链过期，论坛搜不到，正版买不起等，于是索性自己动手写一个翻译器。  
