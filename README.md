@@ -1,0 +1,2 @@
+# konnyaku_Translator
+konnyaku_Translator：一款使用python编写基于OCR的简易翻译器
