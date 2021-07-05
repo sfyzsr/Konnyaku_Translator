@@ -8,14 +8,13 @@ from PyQt5 import QtTest
 from win32.lib import win32con
 from win32.win32api import SendMessage
 from win32.win32gui import ReleaseCapture
-
 import win32con
 import win32api
-
 
 from ctypes.wintypes import  MSG
 
 import pyautogui
+
 import os
 
 from paddleocr import PaddleOCR
@@ -25,7 +24,6 @@ from googletrans import Translator
 import re
 
 import gooTrans
-
 
 class translationDemo(QWidget):
     BORDER_WIDTH = 5
@@ -49,10 +47,10 @@ class translationDemo(QWidget):
         self.minButton = QtWidgets.QPushButton(
             "Minimize")      # Minimize window buttown
         self.closeButton = QtWidgets.QPushButton(
-            "close")       # Close window button
+            "Close")       # Close window button
 
         self.minButton.clicked.connect(self.window().showMinimized)
-        self.closeButton.clicked.connect(self.window().close)
+        self.closeButton.clicked.connect(self.window().closeButtonCliked)
 
         hframe = QHBoxLayout()  # A QHbox layout to load the frame
 
@@ -70,23 +68,23 @@ class translationDemo(QWidget):
         self.originWindow = QtWidgets.QWidget()
 
         self.getbutton = QtWidgets.QPushButton(
-            'get')   # Get scrennshot to OCR button
+            'Get')   # Get scrennshot to OCR button
         self.getbutton.clicked.connect(self.getButtonClicked)
 
         self.autoGetButton = QtWidgets.QPushButton(
-            'auto get')  # auto get scrennshots to OCR button
+            'Auto get')  # auto get scrennshots to OCR button
         self.autoGetButton.clicked.connect(self.autoGetButtonClicked)
 
         self.stopAutoGetButton = QtWidgets.QPushButton(
-            'stop auto')   # stop auto get scrennshots to OCR button
+            'Stop auto')   # stop auto get scrennshots to OCR button
         self.stopAutoGetButton.clicked.connect(self.stopAutoGetButtonClicked)
 
         self.transButton = QtWidgets.QPushButton(
-            "translation")     # translation button
+            "Translation")     # translation button
         self.transButton.clicked.connect(self.translationButtonClicked)
 
         # clean the screenshot in buffer / also clean the text box
-        self.cleanButton = QtWidgets.QPushButton('clean')
+        self.cleanButton = QtWidgets.QPushButton('Clean')
         self.cleanButton.clicked.connect(self.cleanBufferImage)
 
         hbuttonbox = QHBoxLayout()  # A QHboxLayout to load buttons
@@ -191,6 +189,11 @@ class translationDemo(QWidget):
     def stopAutoGetButtonClicked(self):
         self.autoOCRFlag = False
         self.statusText.setText("stop auto translating")
+
+    def closeButtonCliked(self):
+        if os.path.exists('screenshot.png'):
+            os.remove('screenshot.png')
+        QApplication.quit()
 
     def translationButtonClicked(self):
         print(self.OCRtextEdit.toPlainText())
